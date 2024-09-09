@@ -10,8 +10,19 @@ import {
  } from "react-icons/fa";
  
  import { SiCsharp,
+  SiDatabricks,
+  SiGooglecolab,
   
   } from "react-icons/si";
+
+//material icons
+import TipsAndUpdatesRoundedIcon from '@mui/icons-material/TipsAndUpdatesRounded';
+import FollowTheSignsRoundedIcon from '@mui/icons-material/FollowTheSignsRounded';
+import PsychologyAltRoundedIcon from '@mui/icons-material/PsychologyAltRounded';
+import Diversity2RoundedIcon from '@mui/icons-material/Diversity2Rounded';
+import RecordVoiceOverRoundedIcon from '@mui/icons-material/RecordVoiceOverRounded';
+import BuildCircleRoundedIcon from '@mui/icons-material/BuildCircleRounded';
+import HistoryToggleOffRoundedIcon from '@mui/icons-material/HistoryToggleOffRounded';
 
 //experience data
 const experience = {
@@ -55,7 +66,7 @@ const education = {
     },
     {
       institution: "Algorithmics",
-      degree: "International professor of programming, videogame design",
+      degree: "International professor of programming & videogame design",
       duration: "2024"
     },
   ]
@@ -66,6 +77,30 @@ const skills = {
   title: 'My Skills',
   description: "I have experience with a variety of programming languages and technologies. I am always eager to learn new things and expand my knowledge.",
   items: [
+    {
+      name: "Python",
+      icon: <FaPython />
+    },
+    {
+      name: "Java",
+      icon: <FaJava />
+    },
+    {
+      name: "C#",
+      icon: <SiCsharp />
+    },
+    {
+      name: "Databases",
+      icon: <FaDatabase />
+    },
+    {
+      name: "Google Colab",
+      icon: <SiGooglecolab />
+    },
+    {
+      name: "DataScience",
+      icon: <SiDatabricks />
+    },
     {
       name: "HTML5",
       icon: <FaHtml5 />
@@ -82,24 +117,44 @@ const skills = {
       name: "React",
       icon: <FaReact />
     },
+  ]
+}
+//soft skills data
+const softSkills = {
+  title: 'My Soft Skills',
+  description: "I have developed a variety of soft skills that have helped me in my personal and professional life. I am a quick learner and I am always eager to take on new challenges.",
+  items: [
     {
-      name: "Java",
-      icon: <FaJava />
+      name: "Problem Solving",
+      icon: <TipsAndUpdatesRoundedIcon style={{ fontSize: 70 }} />
     },
     {
-      name: "Python",
-      icon: <FaPython />
+      name: "Leadership",
+      icon: <FollowTheSignsRoundedIcon style={{ fontSize: 70 }} />
     },
     {
-      name: "C#",
-      icon: <SiCsharp />
+      name: "Critical Thinking",
+      icon: <PsychologyAltRoundedIcon style={{ fontSize: 70 }} />
     },
     {
-      name: "Databases",
-      icon: <FaDatabase />
+      name: "Teamwork",
+      icon: <Diversity2RoundedIcon style={{ fontSize: 70 }} />
+    },
+    {
+      name: "Communication",
+      icon: <RecordVoiceOverRoundedIcon style={{ fontSize: 70 }} />
+    },
+    {
+      name: "Adaptability",
+      icon: <BuildCircleRoundedIcon style={{ fontSize: 70 }} />
+    },
+    {
+      name: "Time Management",
+      icon: <HistoryToggleOffRoundedIcon style={{ fontSize: 70 }} />
     },
   ]
 }
+
 
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@/components/ui/tabs";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -112,7 +167,7 @@ const Resume = () => {
       initial={{ opacity: 0 }}
       animate={{ 
         opacity: 1, 
-        transition: { delay:2.4, duration: 0.5, ease: "easeIn" },
+        transition: { delay:1.5, duration: 0.5, ease: "easeIn" },
       }}
     className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
     >
@@ -126,6 +181,7 @@ const Resume = () => {
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
+            <TabsTrigger value="soft skills">Soft Skills</TabsTrigger>
           </TabsList>
 
           {/* content */}
@@ -196,11 +252,72 @@ const Resume = () => {
               </div>
             </TabsContent>
             {/* skill */}
-            <TabsContent value="skills" className="w-full">
-              skills
+            <TabsContent value="skills" className="w-full h-full">
+              <div className="flex flex-col gap[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">
+                    {skills.title}
+                  </h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {skills.description}
+                  </p>
+                </div>
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap[30px] py-6">
+                  {skills.items.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                             <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                              {item.icon}
+                             </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="rounded-xl bg-primary text-accent">
+                              <p className="capitalize">{item.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </TabsContent>
+            {/* soft skill */}
+            <TabsContent value="soft skills" className="w-full h-full">
+              <div className="flex flex-col gap[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">
+                    {softSkills.title}
+                  </h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {softSkills.description}
+                  </p>
+                </div>
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap[30px] py-6">
+                  {softSkills.items.map((item, index) => {
+                    return (
+                      <li key={index}>
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                             <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                              {item.icon}
+                             </div>
+                            </TooltipTrigger>
+                            <TooltipContent className="rounded-xl bg-primary text-accent">
+                              <p className="capitalize">{item.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
             </TabsContent>
           </div>
-
         </Tabs>
       </div>
     
