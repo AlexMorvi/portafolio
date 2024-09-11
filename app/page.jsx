@@ -18,12 +18,14 @@ const Home = () => {
           <p className="max-w-[500px] mb-9 text-white/80">I excel and enjoy crafting digital solutions and I am proficient in various programming languages and technologies.</p>
           {/* btn and socials */}
           <div className="flex flex-col xl:flex-row items-center gap-8">
+          <a href="/assets/CV-Alexander Morales.pdf" download className="inline-flex items-center">
             <Button variant="outline" size="lg" className="uppercase flex items-center gap-2">
               <span>
                 Download CV 
               </span>
               <FiDownload className="text-xl" />
             </Button>
+            </a>
             <div className="mb-8 xl:mb-0">
               <Social containerStyles="flex gap-6" 
               iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center 
