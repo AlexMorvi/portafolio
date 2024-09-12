@@ -15,11 +15,11 @@ const Header = () => {
         <Image 
             src="/LogoM.svg" 
             alt="Logo" 
-            width={48} 
-            height={48} 
+            width={40} 
+            height={40} 
             className="invert"
           />
-          <span className="text-accent">..</span>
+          <span className="text-accent text-2xl ml-1 relative top-[2px]">..</span>
         </Link>
         {/*desk nav & hire me button*/}
         <div className="hidden xl:flex items-center gap-8  ">
