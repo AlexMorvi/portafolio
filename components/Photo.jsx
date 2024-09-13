@@ -10,14 +10,14 @@ const Photo = () => {
     initial={{opacity: 0}}
     animate={{
         opacity: 1,
-        transition: {delay: 1.7, duration: 0.4, ease: "easeIn"}
+        transition: {delay: 1.5, duration: 0.3, ease: "easeInOut"}
     }}>
         {/*photo*/}
         <motion.div 
         initial={{opacity: 0}}
         animate={{
             opacity: 1,
-            transition: {delay: 2, duration: 0.4, ease: "easeInOut"}
+            transition: {delay: 1.8, duration: 0.4, ease: "easeInOut"}
         }}
         className="w-[290px] h-[290px] xl:w-[490px] 
         xl:h-[490px] mix-blend-lighten absolute">
@@ -45,7 +45,7 @@ const Photo = () => {
                 rotate: [120, 360],
             }}
             transition= {{
-                duration: 20, 
+                duration: 17, 
                 repeat: Infinity,
                 repeatType: "reverse",    
             }}
