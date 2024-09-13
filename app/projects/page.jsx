@@ -13,32 +13,33 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 
 const works = [
+  
   {
     num:'01',
-    category: 'Web Development',
-    title: 'project 1',
-    description: "lorem",
-    stack: [{name: "Html 5"}, {name: "Css 3"}, {name: "Javascript"}],
-    image: '/assets/work/thumb2.png',
-    github:""
+    category: 'IA & Machine Learning',
+    title: 'SecureHome',
+    description: "A custom Siamese neural network was used to ensure high accuracy in facial recognition. Additionally, it was connected to Telegram, which was used to send data from each recognition, view the live camera feed, access the history, and other functionalities. It is designed to address home security issues.",
+    stack: [{name: "Python"}, {name: "TensorFlow"}, {name: "Telegram API"}],
+    image: '/assets/work/face.png',
+    github:"https://github.com/AlexMorvi/Reconocimiento-Facial"
   },
   {
     num:'02',
-    category: 'Web Development',
-    title: 'project 2',
-    description: "lorem",
-    stack: [{name: "Html 5"}, {name: "Css 3"}, {name: "Javascript"}],
-    image: '/assets/work/thumb1.png',
-    github:""
+    category: 'Game Development',
+    title: 'Space Explorers',
+    description: "This game is aimed at children aged 12 and up, born from the need to spark curiosity about outer space and the world of astronomy. In the game, players start on a spaceship and can explore the entire solar system, planet by planet. It is designed with a realistic approach, where the lights, planets, gravity, distance, etc., are a simulation of reality.",
+    stack: [{name: "C++"}, {name: "OpenGl"}, {name: "Blender"}],
+    image: '/assets/work/spaces.png',
+    github:"https://github.com/AlexMorvi/Simulador-Del-Sistema-Solar"
   },
   {
     num:'03',
     category: 'Web Development',
-    title: 'project 3',
-    description: "lorem",
-    stack: [{name: "Html 5"}, {name: "Css 3"}, {name: "Javascript"}],
-    image: '/assets/work/thumb3.png',
-    github:""
+    title: 'Gymbro',
+    description: "This web system was made for a gym. It would display a landing page and provide access for the gym's administrative staff, where they could review all clients, schedules, trainers, workouts, memberships, etc. Each of these would have their respective C.R.U.D operations.",
+    stack: [{name: "Angular"}, {name: "Springboot"}, {name: "Typescript"}, {name: "HTML"}, {name: "CSS"}],
+    image: '/assets/work/gymbro.png',
+    github:"https://github.com/AlexMorvi/Gym_WebSite"
   },
 ]
 
@@ -70,6 +71,14 @@ const Projects = () => {
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
                 {work.category} project
               </h2>
+              {/*Title*/}
+              <h4 className="text-[20px] font-bold leading-none text-white/60">
+                {work.title}
+              </h4>
+              {/*description*/}
+              <p className=" text-white/60">
+                {work.description}
+              </p>
               {/*stack*/}
               <ul className="flex gap-4">
                 {work.stack.map((item, index) => (
