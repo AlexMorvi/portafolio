@@ -37,8 +37,8 @@ const works = [
     category: 'Web Development',
     title: 'Gymbro',
     description: "This web system was made for a gym. It would display a landing page and provide access for the gym's administrative staff, where they could review all clients, schedules, trainers, workouts, memberships, etc. Each of these would have their respective C.R.U.D operations.",
-    stack: [{name: "Angular"}, {name: "Springboot"}, {name: "Typescript"}, {name: "HTML"}, {name: "CSS"}],
-    image: '/assets/work/Gymbro.png',
+    stack: [{name: "Angular"}, {name: "Springboot"}, {name: "TS"}],
+    image: '/assets/work/Gymbro2.png',
     github:"https://github.com/AlexMorvi/Gym_WebSite"
   },
 ]
@@ -82,7 +82,7 @@ const Projects = () => {
               {/*stack*/}
               <ul className="flex gap-4">
                 {work.stack.map((item, index) => (
-                  <li key={index} className="text-xl text-accent">
+                  <li key={index} className="text-xl text-accent flex items-center">
                     {item.name}
                     {/*remove the last comma*/}
                     {index !== work.stack.length - 1 && ","}
