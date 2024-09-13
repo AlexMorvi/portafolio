@@ -20,7 +20,7 @@ const works = [
     title: 'SecureHome',
     description: "A custom Siamese neural network was used to ensure high accuracy in facial recognition. Additionally, it was connected to Telegram, which was used to send data from each recognition, view the live camera feed, access the history, and other functionalities. It is designed to address home security issues.",
     stack: [{name: "Python"}, {name: "TensorFlow"}, {name: "Telegram API"}],
-    image: '/assets/work/face.png',
+    image: '/assets/work/Face.png',
     github:"https://github.com/AlexMorvi/Reconocimiento-Facial"
   },
   {
@@ -38,7 +38,7 @@ const works = [
     title: 'Gymbro',
     description: "This web system was made for a gym. It would display a landing page and provide access for the gym's administrative staff, where they could review all clients, schedules, trainers, workouts, memberships, etc. Each of these would have their respective C.R.U.D operations.",
     stack: [{name: "Angular"}, {name: "Springboot"}, {name: "Typescript"}, {name: "HTML"}, {name: "CSS"}],
-    image: '/assets/work/gymbro.png',
+    image: '/assets/work/Gymbro.png',
     github:"https://github.com/AlexMorvi/Gym_WebSite"
   },
 ]
@@ -64,7 +64,7 @@ const Projects = () => {
             <div className="flex flex-col gap-[30px] h-[50%]">
               {/*outline number*/}
               <div className="text-8xl leading-none font-extrabold text-transparent" 
-              style={{ WebkitTextStroke: "1px white" }}>
+              style={{ WebkitTextStroke: "1px #edd221" }}>
                 {work.num}
               </div>
               {/*category*/}
