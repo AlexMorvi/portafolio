@@ -45,6 +45,11 @@ const experience = {
       position: "Volunteer",
       duration: "2024-Present"
     },
+    {
+      company: "Algorithmics",
+      position: "Teacher",
+      duration: "2024-Present"
+    },
   ]
 }
   

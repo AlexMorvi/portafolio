@@ -9,10 +9,6 @@ const links = [
     },
     {
         name: "about me",
-        href: "/about",
-    },
-    {
-        name: "resume",
         href: "/resume",
     },
     {
