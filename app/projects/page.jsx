@@ -16,7 +16,7 @@ const works = [
   
   {
     num:'01',
-    category: 'IA & Machine Learning',
+    category: 'AI & Machine Learning',
     title: 'SecureHome',
     description: "A custom Siamese neural network was used to ensure high accuracy in facial recognition. Additionally, it was connected to Telegram, which was used to send data from each recognition, view the live camera feed, access the history, and other functionalities. It is designed to address home security issues.",
     stack: [{name: "Python"}, {name: "TensorFlow"}, {name: "Telegram API"}],
@@ -38,7 +38,7 @@ const works = [
     title: 'Gymbro',
     description: "This web system was made for a gym. It would display a landing page and provide access for the gym's administrative staff, where they could review all clients, schedules, trainers, workouts, memberships, etc. Each of these would have their respective C.R.U.D operations.",
     stack: [{name: "Angular"}, {name: "Springboot"}, {name: "TS"}],
-    image: '/assets/work/Gymbro2.png',
+    image: '/assets/work/Gymbro.png',
     github:"https://github.com/AlexMorvi/Gym_WebSite"
   },
 ]
