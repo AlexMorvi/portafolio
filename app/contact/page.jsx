@@ -75,7 +75,7 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 1.4, duration: 0.4, ease: "easeIn" },
       }}
       className="py-6"
     >
@@ -89,9 +89,7 @@ const Contact = () => {
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
                 Did you like my profile, or can I assist you with something? 
-                <p>
-                  Fill out the form, and I will get in touch with you as soon as possible.
-                </p>
+                Fill out the form, and I will get in touch with you as soon as possible.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
