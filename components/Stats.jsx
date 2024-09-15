@@ -38,8 +38,8 @@ const Stats = () => {
                             key={index}>
                             <CountUp 
                             end={item.num} 
-                            duration={6} 
-                            delay={2}
+                            duration={10} 
+                            delay={1.5}
                             className="text-4xl xl:text-6xl front-extrabold" 
                         />
                             <p className={`${item.Text.length <15 ? "max-w-[100px]":"max-w-[150px]"} leading-snug text-white/80`}>

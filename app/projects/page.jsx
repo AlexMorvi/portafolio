@@ -27,7 +27,7 @@ const works = [
     num:'02',
     category: 'Game Development',
     title: 'Space Explorers',
-    description: "This game is aimed at children aged 12 and up, born from the need to spark curiosity about outer space and the world of astronomy. In the game, players start on a spaceship and can explore the entire solar system, planet by planet. It is designed with a realistic approach, where the lights, planets, gravity, distance, etc., are a simulation of reality.",
+    description: "This game is aimed at children aged 12 and up, born from the need to spark curiosity about outer space and the world of astronomy. In the game, players start on a spaceship and can explore the entire solar system, planet by planet. It is designed with a realistic approach, where the lights, planets, gravity, distance, etc. This game is a simulation of reality.",
     stack: [{name: "C++"}, {name: "OpenGl"}, {name: "Blender"}],
     image: '/assets/work/spaces.png',
     github:"https://github.com/AlexMorvi/Simulador-Del-Sistema-Solar"
@@ -36,7 +36,7 @@ const works = [
     num:'03',
     category: 'Web Development',
     title: 'Gymbro',
-    description: "This web system was made for a gym. It would display a landing page and provide access for the gym's administrative staff, where they could review all clients, schedules, trainers, workouts, memberships, etc. Each of these would have their respective C.R.U.D operations.",
+    description: "This web system was made for a gym. It would display a landing page and provide access for the gym's administrative staff, where they could review all clients, schedules, trainers, workouts, memberships, etc. Each of these would have their respective C.R.U.D. operations.",
     stack: [{name: "Angular"}, {name: "Springboot"}, {name: "TS"}],
     image: '/assets/work/Gymbro.png',
     github:"https://github.com/AlexMorvi/Gym_WebSite"

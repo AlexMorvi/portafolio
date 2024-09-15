@@ -28,7 +28,7 @@ import HistoryToggleOffRoundedIcon from '@mui/icons-material/HistoryToggleOffRou
 const experience = {
   icon: '/assets/resume/badge.svg',
   title: 'My Experience',
-  description: "In my short carrer, I've gained a foundation in tech while also building soft skills in other industries. I'm eager to apply my diverse experience to real-world software projects.",
+  description: "In my short career, I've gained a foundation in tech while also building soft skills in other industries. I'm eager to apply my diverse experience to real-world software projects.",
   items: [
     {
       company: "Tuscooterelectrico.com",
