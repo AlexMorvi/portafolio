@@ -9,7 +9,7 @@ import {
   FaDatabase,
  } from "react-icons/fa";
  
- import { SiCsharp,
+ import { SiSharp,
   SiDatabricks,
   SiGooglecolab,
   
@@ -92,7 +92,7 @@ const skills = {
     },
     {
       name: "C#",
-      icon: <SiCsharp />
+      icon: <SiSharp />
     },
     {
       name: "Databases",

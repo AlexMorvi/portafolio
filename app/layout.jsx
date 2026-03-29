@@ -5,8 +5,11 @@ import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], weights: ["100", "200","100", "300", "400", "500", "600", "700", "800", "900"],
-  variable: '--font-jetbrainsMono' });
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-jetbrainsMono",
+});
 
 export const metadata = {
   title: "Alexander's Portfolio",
@@ -16,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={jetbrainsMono.variable}>
+      <body suppressHydrationWarning className={jetbrainsMono.variable}>
         <Header />
         <StairTransition></StairTransition>
         <PageTransition>{children}</PageTransition>    
