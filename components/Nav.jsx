@@ -2,35 +2,40 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const links = [
+const sections = [
     {
-        name: "home",
-        href: "/",
+        key: "home",
+        href: "",
     },
     {
-        name: "about me",
+        key: "about",
         href: "/about",
     },
     {
-        name: "projects",
+        key: "projects",
         href: "/projects",
+    },
+    {
+        key: "contact",
+        href: "/contact",
     },
 ];
 
-const Nav = () => {
+const Nav = ({ lang = "en", labels = {} }) => {
     const pathname = usePathname();
     return (
         <nav className="flex gap-8">
-            {links.map((link, index)=>{
+            {sections.map((section, index)=>{
+                const href = `/${lang}${section.href}`;
                 return (
                     <Link 
-                    href={link.href} 
+                    href={href} 
                     key= {index}
                     className={`${
-                        link.href === pathname && "text-accent border-b-2 border-accent" 
+                        href === pathname && "text-accent border-b-2 border-accent" 
                     } capitalize font-medium hover:text-accent transition-all`}
                     >
-                        {link.name}
+                        {labels[section.key] || section.key}
                     </Link>
         );
     })}

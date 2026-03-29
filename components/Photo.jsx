@@ -20,23 +20,24 @@ const Photo = () => {
             transition: {delay: 1.8, duration: 0.4, ease: "easeInOut"}
         }}
         className="w-[290px] h-[290px] xl:w-[490px] 
-        xl:h-[490px] mix-blend-lighten absolute">
+        xl:h-[490px] mix-blend-lighten absolute z-20">
 
             <Image src="/assets/pfm.png" 
             priority 
-            quality={100} 
-            fill alt ="" 
+            unoptimized
+            fill alt ="Portrait of Alexander Morales" 
+            sizes="(max-width: 1280px) 290px, 490px"
             className="object-contain"/>
         </motion.div>
 
         {/*circle*/}
 
-        <motion.svg className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]" 
+        <motion.svg className="relative z-0 w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]" 
         fill="transparent"
         viewBox="0 0 506 506"
         xmlns="http://www.w3.org/2000/svg"
         >
-            <motion.circle cx="253" cy="253" r="250" stroke="#edd221" strokeWidth= "4"
+            <motion.circle cx="253" cy="253" r="250" stroke="#facc15" strokeWidth= "4"
             strokeLinecap="round"
             strokeLinejoin="round"
             initial={{strokeDasharray: "24 10 0 0"}}
@@ -45,7 +46,7 @@ const Photo = () => {
                 rotate: [120, 360],
             }}
             transition= {{
-                duration: 17, 
+                duration: 8,
                 repeat: Infinity,
                 repeatType: "reverse",    
             }}

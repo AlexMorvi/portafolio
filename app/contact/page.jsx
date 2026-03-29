@@ -3,20 +3,26 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-import emailjs from "emailjs-com";
+import Link from "next/link";
 
 const info = [
   {
     icon: <FaEnvelope />,
     title: "Email",
-    descipcion: "arielmorales.2105@gmail.com",
+    description: "arielmorales.2105@gmail.com",
   },
   {
     icon: <FaMapMarkerAlt />,
     title: "Location",
-    descipcion: "Quito, Ecuador",
+    description: "Quito, Ecuador",
+  },
+  {
+    icon: <FaLinkedin />,
+    title: "LinkedIn",
+    description: "linkedin.com/in/alx-mrv",
+    link: "https://linkedin.com/in/alx-mrv/",
   },
 ];
 
@@ -36,31 +42,27 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    emailjs
-      .send(
-        "service_gzzzs98", // Service ID
-        "template_kqtq1vr", // Template ID
-        {
-          firstname: formData.firstname,
-          lastname: formData.lastname,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-        },
-        "8qK2kd1G21vzJbmZM" // Public Key (antes llamado User ID)
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("Mensaje enviado con éxito");
-        },
-        (error) => {
-          console.log(error.text);
-          alert("Hubo un error al enviar el mensaje");
-        }
-      );
+    const requiredFields = [
+      formData.firstname,
+      formData.lastname,
+      formData.email,
+      formData.message,
+    ];
 
-    // Limpia el formulario después de enviar
+    if (requiredFields.some((field) => !field.trim())) {
+      alert("Please complete name, email and message before sending.");
+      return;
+    }
+
+    const subject = encodeURIComponent(
+      `Portfolio contact - ${formData.firstname} ${formData.lastname}`
+    );
+    const body = encodeURIComponent(
+      `Name: ${formData.firstname} ${formData.lastname}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+    );
+
+    window.location.href = `mailto:arielmorales.2105@gmail.com?subject=${subject}&body=${body}`;
+
     setFormData({
       firstname: "",
       lastname: "",
@@ -86,16 +88,17 @@ const Contact = () => {
               onSubmit={handleSubmit}
               className="flex flex-col gap-6 p-10 bg-[#27272C] rounded-xl"
             >
-              <h3 className="text-4xl text-accent">Let's work together</h3>
+              <h3 className="text-4xl text-accent">Let&apos;s build reliable software together</h3>
               <p className="text-white/60">
-                Did you like my profile, or can I assist you with something? 
-                Fill out the form, and I will get in touch with you as soon as possible.
+                Looking for support in QA automation, DevOps delivery or software engineering?
+                Send a message and I will reply as soon as possible.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                   type="text"
                   name="firstname"
                   placeholder="Firstname"
+                  required
                   value={formData.firstname}
                   onChange={handleChange}
                 />
@@ -103,6 +106,7 @@ const Contact = () => {
                   type="text"
                   name="lastname"
                   placeholder="Lastname"
+                  required
                   value={formData.lastname}
                   onChange={handleChange}
                 />
@@ -110,6 +114,7 @@ const Contact = () => {
                   type="email"
                   name="email"
                   placeholder="Email address"
+                  required
                   value={formData.email}
                   onChange={handleChange}
                 />
@@ -124,12 +129,13 @@ const Contact = () => {
               <Textarea
                 className="h-[200px]"
                 name="message"
-                placeholder="Type your message here."
+                placeholder="Tell me about your project, challenge or hiring process."
+                required
                 value={formData.message}
                 onChange={handleChange}
               />
               <Button type="submit" size="md" className="max-w-40">
-                Send Message
+                Send
               </Button>
             </form>
           </div>
@@ -137,12 +143,23 @@ const Contact = () => {
             <ul className="flex flex-col gap-10">
               {info.map((item, index) => (
                 <li key={index} className="flex items-center gap-4 ">
-                  <div className="w-[52px] h-[52px] xl:[72px] xl:h[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
                     <div className="text-[28px]">{item.icon}</div>
                   </div>
                   <div className="flex-1">
                     <h4 className="text-xl text-white/60">{item.title}</h4>
-                    <p className="text-white/60">{item.descipcion}</p>
+                    {item.link ? (
+                      <Link
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-accent transition-colors"
+                      >
+                        {item.description}
+                      </Link>
+                    ) : (
+                      <p className="text-white/60">{item.description}</p>
+                    )}
                   </div>
                 </li>
               ))}

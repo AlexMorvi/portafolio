@@ -4,15 +4,21 @@
 
 @layer base {
   body {
-    @apply font-primary bg-primary text-white leading-loose; 
+    @apply font-primary bg-primary text-white leading-loose;
   }
   .h1 {
-    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+    @apply text-[42px] xl:text-[74px] leading-[1.05] font-semibold tracking-[-0.02em];
   }
   .h2 {
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+    @apply text-[34px] xl:text-[56px] leading-[1.08] font-semibold tracking-[-0.015em];
   }
   .h3 {
-    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+    @apply text-[20px] xl:text-[26px] leading-[1.1] font-semibold;
+  }
+
+  ::selection {
+    background: rgba(250, 204, 21, 0.35);
+    color: #111111;
   }
 }
+

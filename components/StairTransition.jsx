@@ -17,7 +17,7 @@ const StairTransition = () => {
                 initial={{opacity: 1}} 
                 animate={{
                     opacity: 0, 
-                    transition:{delay: 0.1, duration: 0.4, ease:"easeInOut"} 
+                    transition:{delay: 0.06, duration: 0.28, ease:"easeInOut"} 
                 }}
                 />
                 </div>

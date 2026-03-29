@@ -1,9 +1,5 @@
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-//components
-import Header from "@/components/Header";
-import PageTransition from "@/components/PageTransition";
-import StairTransition from "@/components/StairTransition";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -12,17 +8,20 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Alexander's Portfolio",
-  description: "Alexander's Portfolio",
+  title: "Alexander Morales | Portfolio",
+  description: "QA Automation Engineer portfolio focused on quality, DevOps and impact.",
+  icons: {
+    icon: "/LogoM.svg",
+    shortcut: "/LogoM.svg",
+    apple: "/LogoM.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning className={jetbrainsMono.variable}>
-        <Header />
-        <StairTransition></StairTransition>
-        <PageTransition>{children}</PageTransition>    
+        {children}
       </body>
     </html>
   );

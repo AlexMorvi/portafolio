@@ -2,48 +2,34 @@
 
 import CountUp from "react-countup"
 
-const stats = [
-
-    {
-        num:1,
-        Text:"Years of Experience"
-    },
-    {
-        num:12,
-        Text:"Projects Completed"
-    },
-    {
-        num:14,
-        Text:"Technologies Used"
-    },
-    {
-        num:171,
-        Text:"Code Commits"
-    },
-    {
-        num:7,
-        Text:"College Semester"
-    },
+const fallbackStats = [
+    { num: 3, text: "Years Building Software" },
+    { num: 5, text: "Certifications & Bootcamps" },
+    { num: 3, text: "Featured Impact Projects" },
+    { num: 40, text: "Deployment Time Reduced (%)" },
+    { num: 60, text: "Error Detection Improvement (%)" },
 ]
 
-const Stats = () => {
+const Stats = ({ items }) => {
+  const stats = items?.length ? items : fallbackStats;
+
   return (
-    <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
+    <section className="pt-2 pb-10 xl:pt-0 xl:pb-2">
         <div className="container mx-auto">
-            <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none ">
+            <div className="mx-auto grid max-w-[90vw] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:max-w-none xl:grid-cols-5 xl:gap-3">
                 {stats.map((item, index) => {
                     return (
                         <div 
-                            className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
+                            className="flex items-center justify-center gap-3 xl:justify-start"
                             key={index}>
                             <CountUp 
                             end={item.num} 
-                            duration={10} 
-                            delay={1.5}
-                            className="text-4xl xl:text-6xl front-extrabold" 
+                            duration={2.4}
+                            delay={0.25}
+                            className="text-4xl xl:text-5xl font-extrabold" 
                         />
-                            <p className={`${item.Text.length <15 ? "max-w-[100px]":"max-w-[150px]"} leading-snug text-white/80`}>
-                                {item.Text}
+                            <p className={`${item.text.length < 18 ? "max-w-[110px]" : "max-w-[150px]"} text-sm leading-snug text-white/80 xl:text-[13px]`}>
+                                {item.text}
                             </p>
                         </div>
                     )

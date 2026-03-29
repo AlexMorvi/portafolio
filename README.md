@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a Next.js portfolio project.
 
 ## Getting Started
 
@@ -16,7 +16,32 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `app/page.jsx`. The page auto-updates as you edit the file.
+
+## Contact Form Setup
+
+The localized contact page at `/[lang]/contact` sends messages through the API route `app/api/contact/route.js`.
+
+1. Create a local env file:
+
+```bash
+cp .env.example .env.local
+```
+
+2. Set required variables in `.env.local`:
+
+```env
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=your_inbox_email
+```
+
+3. Optional sender value:
+
+```env
+CONTACT_FROM_EMAIL=Portfolio Contact <onboarding@resend.dev>
+```
+
+If required variables are missing, the API returns service unavailable and the UI shows a friendly error message.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 

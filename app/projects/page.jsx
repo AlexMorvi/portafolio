@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import React, {useState} from "react";
 import {Swiper, SwiperSlide} from 'swiper/react';
 import "swiper/css"
-import { BsGithub} from 'react-icons/bs';
+import { BsGithub, BsGlobe2 } from 'react-icons/bs';
 import { Tooltip, TooltipContent,TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 import Link from "next/link";
@@ -13,33 +13,36 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 
 const works = [
-  
   {
     num:'01',
-    category: 'AI & Machine Learning',
-    title: 'SecureHome',
-    description: "A custom Siamese neural network was used to ensure high accuracy in facial recognition. Additionally, it was connected to Telegram, which was used to send data from each recognition, view the live camera feed, access the history, and other functionalities. It is designed to address home security issues.",
-    stack: [{name: "Python"}, {name: "TensorFlow"}, {name: "Telegram API"}],
-    image: '/assets/work/Face.png',
-    github:"https://github.com/AlexMorvi/Reconocimiento-Facial"
+    category: 'CivicTech & Secure Architecture',
+    title: 'Denuncia Segura EC',
+    description: "Secure reporting platform for anonymous citizen reports to government entities. Built with microservices and defense-in-depth principles, deployed with automated CI/CD and continuous observability.",
+    stack: [{name: "Java"}, {name: "Spring Boot"}, {name: "Angular"}, {name: "OAuth2"}, {name: "Azure Container Apps"}],
+    image: '/assets/work/dsec.png',
+    github: "https://github.com/AlexMorvi/DenunciaSeguraFrontend",
+    githubLabel: "Frontend repository",
+    githubSecondary: "https://github.com/AlexMorvi/DenunciaSeguraBackend",
+    githubSecondaryLabel: "Backend repository",
+    demo: "https://denuncia-segura-frontend.vercel.app/login"
   },
   {
     num:'02',
-    category: 'Game Development',
-    title: 'Space Explorers',
-    description: "This game is aimed at children aged 12 and up, born from the need to spark curiosity about outer space and the world of astronomy. In the game, players start on a spaceship and can explore the entire solar system, planet by planet. It is designed with a realistic approach, where the lights, planets, gravity, distance, etc. This game is a simulation of reality.",
-    stack: [{name: "C++"}, {name: "OpenGl"}, {name: "Blender"}],
-    image: '/assets/work/spaces.png',
-    github:"https://github.com/AlexMorvi/Simulador-Del-Sistema-Solar"
+    category: 'AI Safety for Education',
+    title: 'Educational AI Content Moderator',
+    description: "Thesis project: browser extension and AI backend to detect and filter potentially abusive content on educational platforms. Focused on model validation, continuous testing and ethical AI guidelines.",
+    stack: [{name: "Browser Extension"}, {name: "AI Backend"}, {name: "Continuous Testing"}],
+    image: '/assets/work/ext.jpg',
+    github: null
   },
   {
     num:'03',
-    category: 'Web Development',
-    title: 'Gymbro',
-    description: "This web system was made for a gym. It would display a landing page and provide access for the gym's administrative staff, where they could review all clients, schedules, trainers, workouts, memberships, etc. Each of these would have their respective C.R.U.D. operations.",
-    stack: [{name: "Angular"}, {name: "Springboot"}, {name: "TS"}],
-    image: '/assets/work/Gymbro.png',
-    github:"https://github.com/AlexMorvi/Gym_WebSite"
+    category: 'Computer Vision & Automation',
+    title: 'Facial Recognition System',
+    description: "Siamese neural network achieving 95% accuracy for facial recognition, integrated with Telegram and Alexa for real-time access control and remote monitoring.",
+    stack: [{name: "Python"}, {name: "TensorFlow"}, {name: "Telegram API"}, {name: "Alexa API"}],
+    image: '/assets/work/Face.png',
+    github:"https://github.com/AlexMorvi/Reconocimiento-Facial"
   },
 ]
 
@@ -60,29 +63,29 @@ const Projects = () => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[30px] h-[50%]">
+          <div className="w-full xl:w-[50%] flex flex-col xl:justify-between order-2 xl:order-none">
+            <div className="flex flex-col gap-5 rounded-2xl border border-accent/25 bg-secondary/40 p-6 xl:min-h-[460px] xl:p-8">
               {/*outline number*/}
               <div className="text-8xl leading-none font-extrabold text-transparent" 
               style={{ WebkitTextStroke: "1px #edd221" }}>
                 {work.num}
               </div>
               {/*category*/}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {work.category} project
+              <h2 className="text-[38px] xl:text-[42px] font-bold leading-tight text-white group-hover:text-accent transition-all duration-500 capitalize break-words">
+                {work.category}
               </h2>
               {/*Title*/}
-              <h4 className="text-[20px] font-bold leading-none text-white/60">
+              <h4 className="text-[20px] font-bold leading-none text-white/60 break-words">
                 {work.title}
               </h4>
               {/*description*/}
-              <p className=" text-white/60">
+              <p className=" text-white/60 break-words">
                 {work.description}
               </p>
               {/*stack*/}
-              <ul className="flex gap-4">
+              <ul className="flex flex-wrap gap-3">
                 {work.stack.map((item, index) => (
-                  <li key={index} className="text-xl text-accent flex items-center">
+                  <li key={index} className="text-base text-accent flex items-center">
                     {item.name}
                     {/*remove the last comma*/}
                     {index !== work.stack.length - 1 && ","}
@@ -92,19 +95,52 @@ const Projects = () => {
               {/*border*/}
               <div className="border border-white/20"></div>
               {/*buttons*/}
-              <div className="flex items-center gap-4">
-                <Link href={work.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" /> 
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>View project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+              <div className="flex flex-wrap items-center gap-3">
+                {work.github && (
+                  <Link href={work.github} target="_blank" rel="noopener noreferrer">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{work.githubLabel || "View repository"}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+                {work.githubSecondary && (
+                  <Link href={work.githubSecondary} target="_blank" rel="noopener noreferrer">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>{work.githubSecondaryLabel || "View repository"}</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+                {work.demo && (
+                  <Link href={work.demo} target="_blank" rel="noopener noreferrer">
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGlobe2 className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live portfolio</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
+                {!work.github && !work.githubSecondary && !work.demo && (
+                  <p className="text-white/50 text-sm">Repository available on request.</p>
+                )}
               </div>
             </div>
           </div>
@@ -116,9 +152,9 @@ const Projects = () => {
             >
               {works.map((work, index) => (
                 <SwiperSlide key={index} className="w-full">
-                  <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                  <div className="h-[460px] relative group flex justify-center items-center bg-accent/10 rounded-lg overflow-hidden">
                     {/*overlay*/}
-                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/25 z-10"></div>
                     {/*image*/}
                     <div>
                       <Image
